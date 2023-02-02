@@ -69,3 +69,7 @@ end
 
 
 gem "foreman", "~> 0.87.2"
+
+gem "rest-client", "~> 2.1"
+
+gem "whenever", "~> 1.0"
