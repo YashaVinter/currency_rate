@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import RateChannel from "../channels/rate_channel";
 
 const Home = () => {
-  const [rate, setRate] = useState(100);
+  const [rate, setRate] = useState();
 
   useEffect(() => {
     RateChannel.connected = () => console.log("conn");
@@ -39,7 +39,7 @@ const Home = () => {
         <h3 className=" primary-color" >Home page</h3>
         <hr/>
         <p>Dollar rate</p>
-        <p>{ rate }</p>
+        <p>{ rate || "loading..."}</p>
         <button className="btn btn-primary" onClick={()=>{setRate(rate+1)}}>Increment rate</button>
         <hr />
       </div>
