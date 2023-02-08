@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'rate/index'
       post 'rate/create'
+      get 'rate/admin_rates'
     end
   end
   root "homepage#index"
