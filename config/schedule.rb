@@ -16,12 +16,9 @@ set :output, "log/cron.log"
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
-every 1.minute do
-  runner "DollarRate.json_read"
-end
 
-every 1.minute do
-  runner "DollarRate.last_rate"
+every 1.hour do
+  runner "DollarRate.get_and_save_last_rate"
 end
 
 # Learn more: http://github.com/javan/whenever
