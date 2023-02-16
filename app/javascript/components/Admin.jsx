@@ -7,8 +7,7 @@ const init_date_time = new Date(new Date().setDate(new Date().getDate() + 1)).to
 const Admin = () => {
   const navigate = useNavigate();
   const [newRate, setNewRate] = useState(0);
-  const [newRateDate, setNewRateDate] = useState("");
-  const [dateTime, setDateTime] = useState(init_date_time);
+  const [newRateDate, setNewRateDate] = useState(init_date_time);
   const [adminRates, setAdminRates] = useState([]);
 
   const onChange = (event, setFunction) => {
@@ -20,7 +19,7 @@ const Admin = () => {
 
     const body = {
       new_rate: newRate,
-      new_rate_date: new Date(dateTime).getTime()/1000 // timestamp
+      new_rate_date: new Date(newRateDate).getTime()/1000 // ruby timestamp
     };
     const url = "/api/v1/rate/create";
     const token = document.querySelector('meta[name="csrf-token"]').content;
@@ -54,7 +53,7 @@ const Admin = () => {
         if (rates.length > 0) {
           // если уже устанавливался, то запишем его
           setNewRate(rates[0].dollar_rate.rate)
-          setDateTime(new Date(rates[0].end_timestamp * 1000).toISOString().slice(0,16));
+          setNewRateDate(new Date(rates[0].end_timestamp * 1000).toISOString().slice(0,16));
         }
       })
   }, []);
@@ -97,9 +96,9 @@ const Admin = () => {
               id="startDate"
               className="form-control"
               type="datetime-local"
-              value={dateTime}
+              value={newRateDate}
               min={minTimeInTimezone}
-              onChange={(event) => onChange(event, setDateTime) }
+              onChange={(event) => onChange(event, setNewRateDate) }
             />
           </div>
           <button type="submit" className="btn btn-primary custom-button mt-3">
