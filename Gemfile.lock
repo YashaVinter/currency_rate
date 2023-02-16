@@ -72,6 +72,7 @@ GEM
     builder (3.2.4)
     chronic (0.10.2)
     concurrent-ruby (1.2.0)
+    connection_pool (2.3.0)
     crass (1.0.6)
     cssbundling-rails (1.1.2)
       railties (>= 6.0.0)
@@ -160,6 +161,9 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.8.0)
+    redis-client (0.12.1)
+      connection_pool
     reline (0.3.2)
       io-console (~> 0.5)
     rest-client (2.1.0)
@@ -167,6 +171,11 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    sidekiq (7.0.3)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -212,7 +221,9 @@ DEPENDENCIES
   jsbundling-rails
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
+  redis (~> 4.0)
   rest-client (~> 2.1)
+  sidekiq (~> 7.0)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
