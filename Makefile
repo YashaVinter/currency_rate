@@ -13,3 +13,7 @@ cron-start-dev:
 	whenever --update-crontab --set environment='development'
 cron-stop:
 	whenever --clear-crontab
+
+# specs
+spec-all:
+	bundle exec rspec spec
