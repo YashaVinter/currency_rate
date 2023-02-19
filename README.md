@@ -26,10 +26,10 @@ install ruby - `rvm install ruby-3.1.1`
 install ruby dependencies - `bundle install`  
 install redis - https://redis.io/docs/getting-started/installation/  
 install npm - `sudo apt install npm`  
-install js dependencies(npm) - `npm install`
+install js dependencies(npm) - `npm install`  
 install yarn - `npm install --global yarn`  
 install js dependencies(yarn) - `yarn install`  
-start redis - `sudo service redis-servis status && sudo service redis-servis start`
+start redis - `sudo service redis-servis status && sudo service redis-servis start`  
 start crontab - read Makefile  
 start app - `bin/dev`  
 * ...
